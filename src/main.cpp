@@ -1,7 +1,6 @@
 // BME280 example. This is a very basic example, with no transforms other than SKOutputNumber.
 // It shows how to get the values from a BME280 sensor, but you should look at other examples
 // for a more thorough explanation of how to use the various transforms and config paths.
-// Test 123
 
 #include <Arduino.h>
 
