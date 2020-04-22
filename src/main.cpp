@@ -24,7 +24,7 @@ ReactESP app([] () {
   #endif
 
   boolean disableStdSensors = true;
-  sensesp_app = new SensESPApp(disableStdSensors);
+  sensesp_app = new SensESPApp(noStdSensors);
 
   // Uses the same read delay for all of the outputs below. Note that you can use different read delays for each reading if you want.
   uint bme_read_delay = 30000;
@@ -40,16 +40,16 @@ ReactESP app([] () {
   // Get the temperature
   // If you don't want to be able to change the read delay at runtime, you don't need to provide the last parameter (the config path).
   auto* pBME280temp = new BME280value(pBME, temperature, bme_read_delay, "/BME280temp/read_delay");
-        pBME280temp->connectTo(new SKOutputNumber("environment.outside.temp"));   // connect the output of BME280temp() to a SignalK Output as a number
+        pBME280temp->connectTo(new SKOutputNumber("environment.inside.temp"));   // connect the output of BME280temp() to a SignalK Output as a number
 
   // Get the barometric pressure
   auto* pBMEpressure = new BME280value(pBME, pressure, bme_read_delay, "/BME280pressure/read_delay");
-        pBMEpressure->connectTo(new SKOutputNumber("environment.inside.engineroom.pressure"));   // connect the output of BME280pressure() to a SignalK Output as a number
+        pBMEpressure->connectTo(new SKOutputNumber("environment.outside.pressure"));   // connect the output of BME280pressure() to a SignalK Output as a number
 
   // Get the sealevel barometric pressure
-  auto* pBMESLpressure = new BME280value(pBME, sealevel_pressure, bme_read_delay, "/BME280pressure/read_delay");
+  auto* pBMESLpressure = new BME280value(pBME, sealevel_pressure, bme_read_delay, "/BME280SeaLevelpressure/read_delay");
         pBMESLpressure->setAltitude(myAltitude);
-        pBMESLpressure->connectTo(new SKOutputNumber("environment.outside.pressure"));   // connect the output of BME280pressure() to a SignalK Output as a number
+        pBMESLpressure->connectTo(new SKOutputNumber("environment.outside.sealeavelpressure"));   // connect the output of BME280pressure() to a SignalK Output as a number
 
   // Get the humidity
   auto* pBMEhumidity = new BME280value(pBME, humidity, bme_read_delay, "/BME280humidity/read_delay");
