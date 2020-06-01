@@ -9,7 +9,7 @@
 #define USE_LIB_WEBSOCKET true
 
 #include "sensesp_app.h"
-#include "sensors/bme280.h"
+#include "bme280.h"
 #include "signalk/signalk_output.h"
 
 ReactESP app([] () {
@@ -23,7 +23,6 @@ ReactESP app([] () {
   Debug.setSerialEnabled(true);
   #endif
 
-  boolean disableStdSensors = true;
   sensesp_app = new SensESPApp(noStdSensors);
 
   // Uses the same read delay for all of the outputs below. Note that you can use different read delays for each reading if you want.
