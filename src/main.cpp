@@ -32,7 +32,7 @@ ReactESP app([] () {
   // Default address is 0x77, but some chips allow you to use 0x76 - see datasheet.
   // To change the mode, sampling, filter, or standby duration, pass those parameters to setSampling(). See
   // https://github.com/adafruit/Adafruit_BME280_Library/blob/master/Adafruit_BME280.h for details.
-  auto* pBME = new BME280(0x77);
+  auto* pBME = new BME280(0x76);
   pBME->pAdafruitBME280->setSampling();
   float myAltitude = 126; //  In Meters (sealevel = 0), used to calculate sealevel atm pressure
 
