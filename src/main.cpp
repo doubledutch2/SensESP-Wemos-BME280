@@ -23,7 +23,7 @@ ReactESP app([] () {
   Debug.setSerialEnabled(true);
   #endif
 
-  sensesp_app = new SensESPApp(noStdSensors);
+  sensesp_app = new SensESPApp("SensESP","","","",0,NONE);
 
   // Uses the same read delay for all of the outputs below. Note that you can use different read delays for each reading if you want.
   uint bme_read_delay = 30000;
